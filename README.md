@@ -6,8 +6,8 @@ SYNTAX:
 --
 * DELETE ALL - deletes list.
 * DELETE *item* - deletes *item* from list. If no item was provided \ the item isn't in the list, the last item will be removed.
---
 
+--
 
 if no syntax was provided, the message would be automatically appended to the list.
 NOTICE: the bot would display the list everytime it's changed, and that's why there's no DISPLAY syntax or something like that.
