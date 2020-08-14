@@ -14,13 +14,13 @@ LIST = json.load(open('data.json'))
 
 def listMain(update,context):
     item = update.message.text
-    item = item.upper() # we read the string as upper so we won't have to deal with upper \ lower cases.
+    item = item.lower() # we read the string as lower so we won't have to deal with upper \ lower cases, and lower cases looks better than upper.
     global LIST
-    if item == "DELETE ALL":
+    if item == "delete all":
         LIST = []
         update.message.reply_text('list is deleted.')
 
-    elif "DELETE" in item:
+    elif "delete" in item:
         try:
             LIST.remove(item[4:])
         except:
@@ -40,6 +40,15 @@ def listMain(update,context):
     if LIST:    
         showlist = ''. join(['{}. {} \n'.format(index, item) for index,item in enumerate(LIST, start=1)])
         update.message.reply_text(showlist)
+        
+    """Example output:
+    1. chicken
+    2. wings
+    3. chicken wings
+    4. tomato sauce"""
+    
+
+
 
     #save list to file everytime we edit it
     with open('data.json', 'w',encoding='utf8') as outfile:
